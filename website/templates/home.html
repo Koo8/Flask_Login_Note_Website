@@ -4,9 +4,9 @@
 
 {% block content %}
 <h1 align="center">Notes</h1>
-<ul class="list-group list-group-flash" id="notes"> <!-- class="list-group list-group-flash" id="notes"-->
+<ul class="list-group list-group-flash" id="notes">
     {% for note in user.notes %}
-    <li class="list-gourp-item">
+    <li class="list-group-item">
         {{ note.data }}
         <button type="button" class="close" onClick="deleteNote({{ note.id }})">
             <span aria-hidden="true">&times;</span>
@@ -18,6 +18,7 @@
     <textarea name="note" id="note" class="form-control"></textarea>
     <br/>
     <div align="center">
+<!--        This button of submit has to be within <form> for the 'post' to be detected -->
         <button type="submit" class="btn btn-primary">
             Add Note
         </button>

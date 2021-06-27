@@ -6,7 +6,6 @@ import json
 
 views = Blueprint('views', __name__)  # set up a blueprint inside the app
 
-
 @views.route('/', methods=['POST', "GET"])
 @login_required
 def home():
@@ -31,6 +30,7 @@ def delete_note():
         if note.user_id == current_user.id:
             db.session.delete(note)
             db.session.commit()
+            flash('note is removed ')
     return jsonify({})
 #
 # @views.route('/delete-note', methods=['POST'])
